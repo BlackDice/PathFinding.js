@@ -119,7 +119,8 @@ function raytrace(x0, y0, x1, y1) {
     var fracStartPosY = (y0 + 0.5) - y0;
     var tForNextBorderY = (deltaY > 0 ? 1 - fracStartPosY : fracStartPosY) * tForOneY;
 
-    var stepX = stepY = 0
+    var stepX = 0;
+    var stepY = 0;
 
     if (deltaX >= 0)
         stepX = 1;
@@ -204,7 +205,7 @@ function smoothenPath(grid, path, useRaytrace) {
         sx, sy,                 // current start coordinate
         ex, ey,                 // current end coordinate
         newPath,
-        i, j, coord, line, testCoord, blocked;
+        i, j, coord, line, testCoord, blocked, lastValidCoord;
 
     sx = x0;
     sy = y0;
